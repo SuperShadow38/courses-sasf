@@ -1,0 +1,38 @@
+:host {
+    margin: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: block;
+}
+img {
+    max-width: 100%;  
+}
+
+.product {
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      transition: box-shadow 0.3s ease-in-out;
+  
+      &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+  
+      .card-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+  
+      .card-text {
+        font-size: 1rem;
+        color: #666;
+      }
+  
+      .btn {
+        margin-top: 1rem;
+      }
+    }
+  }
+  

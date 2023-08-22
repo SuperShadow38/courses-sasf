@@ -1,0 +1,17 @@
+<div class="d-flex align-items-center justify-content-center vh-100">
+  <div class="text-center">  
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="custom-form">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Usuario</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" formControlName = "usuario"  aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">clave</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName = "password">
+      </div>
+      <button type="submit" class="btn btn-primary">Iniciar sesión</button> <br> <br>
+      <p>¿No tienes todavia cuenta?</p>
+      <a routerLink="/register" routerLinkActive="active">Registrarse</a>
+    </form>
+  </div>
+</div>

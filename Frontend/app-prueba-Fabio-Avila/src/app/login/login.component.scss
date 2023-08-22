@@ -1,0 +1,31 @@
+// login.component.scss
+.custom-form {
+    max-width: 400px; // Ajusta el ancho máximo según tu preferencia
+    margin: 0 auto; // Centra horizontalmente
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    .form-label {
+      font-weight: bold;
+    }
+    
+    .form-control {
+      border-color: #ccc;
+      &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      }
+    }
+    
+    .btn-primary {
+      background-color: #2568b0;
+      border-color: #007bff;
+      &:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+      }
+    }
+  }
+  
