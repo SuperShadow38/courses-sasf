@@ -1,6 +1,36 @@
-<div class="product-grid">
-  <app-product *ngFor="let product of products" 
-  (prodcutClicked)="clickProduct($event)" 
-  [product]="product">
-  </app-product>
+<div *ngIf="isLoggedIn()" class="mb-3">
+  <a class="btn btn-primary" routerLink="create">Crear nuevo usuario</a>
 </div>
+<h1>Informacion de usuarios</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Usuarios</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>clave</th>
+      <th>Email</th>
+      <th>Estado</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td>{{ product.usuario }}</td>
+      <td>{{ product.nombre_de_usuario }}</td>
+      <td>{{ product.apellido_de_usuario }}</td>
+      <td>{{ product.clave }}</td>
+      <td>{{ product.email }}</td>
+      <td>{{ product.estadoUsuario }}</td>
+      <td>
+        <a class="btn btn-primary" [routerLink]="['edit', product.usuario.toString()]">Edit</a>
+
+        <button class="btn btn-danger" (click)="deleteProduct(product.usuario.toString())">Delete</button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+

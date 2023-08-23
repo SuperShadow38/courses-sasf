@@ -24,8 +24,8 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { LogoutComponent } from './logout/logout.component';
 import { AuthInterceptor } from './auth-interceptor';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,6 @@ import { AuthInterceptor } from './auth-interceptor';
     LayoutComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent,
     
   ],
   imports: [
@@ -54,6 +53,7 @@ import { AuthInterceptor } from './auth-interceptor';
     BrowserAnimationsModule
   ],
   providers: [
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

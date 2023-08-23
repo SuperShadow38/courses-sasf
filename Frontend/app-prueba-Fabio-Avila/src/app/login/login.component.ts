@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 
 import { ResponseI } from '../models/response.interface';
 
+import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,6 +20,8 @@ import { ResponseI } from '../models/response.interface';
 export class LoginComponent {
 
   loginForm!: FormGroup;
+  showAlert: boolean = false;
+
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       usuario: ['', Validators.required],
@@ -27,33 +31,30 @@ export class LoginComponent {
 
   
 
-  constructor(private api:ApiService, private formBuilder : FormBuilder, private router:Router) {
+  constructor(private api:ApiService, private formBuilder : FormBuilder, private router:Router, private authService:AuthService) {
   }
 
 
   onLogin() {
     const login = new LoginI(
-      this.loginForm.get('usuario')?.value, 
-      this.loginForm.get('password')?.value 
+      this.loginForm.get('usuario')?.value,
+      this.loginForm.get('password')?.value
     );
-
+  
     this.api.loginByUsername(login).subscribe({
       next: (data: any) => {
-        
-          localStorage.setItem("token", data.token);
-          this.router.navigate(['/admin/Users']);
-        
+        localStorage.setItem("token", data.token);
+        this.authService.setAuthenticated(true); // Cambiar el estado de autenticación
+        this.router.navigate(['/home']); // Redirigir al componente de inicio
       },
       error: (error: any) => {
-        alert("PROBLEMAS DE INICIO DE SESION" + error.error.message);
+        this.showAlert = true;
       },
       complete: () => {
         // Lógica al completar la suscripción
       }
     });
-    
   }
-  
   
 }
 

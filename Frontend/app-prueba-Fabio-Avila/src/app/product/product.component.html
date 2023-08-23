@@ -1,8 +1,16 @@
-<div class="product card">
-  <div class="card-body">
-    <h2 class="card-title">{{ product.usuario }}</h2>
-    <p class="card-text">{{ product.clave }}</p>
-    <!-- Agrega más detalles aquí -->
-    <button class="btn btn-primary" (click)="addCart()">Añadir al carrito</button>
-  </div>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Clave</th>
+      <!-- Otros encabezados de columna -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.usuario }}</td>
+      <td>{{ product.clave }}</td>
+      <!-- Otros campos de columna -->
+    </tr>
+  </tbody>
+</table>

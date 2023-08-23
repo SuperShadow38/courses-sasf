@@ -4,6 +4,8 @@ import { Product } from './../product.model';
 
 import { ProductsService } from './../core/services/products/products.service';
 
+import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -15,7 +17,8 @@ export class ProductsComponent implements OnInit  {
   products: Product[] = [];
 
   constructor(
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -31,6 +34,16 @@ export class ProductsComponent implements OnInit  {
     this.productsService.getAllProducts().subscribe(products => {
       this.products = products;
     });
+  }
+
+  deleteProduct(id: string) {
+    this.productsService.deleteProduct(id).subscribe(rta => {
+      console.log(rta);
+    });
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();  
   }
 
 }
