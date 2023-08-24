@@ -9,10 +9,17 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   isAuthenticated: boolean;
+  isAdminUser: boolean;
+  isCreadorUser: boolean;
+  isConsumidorUser: boolean;
+
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-   
+    this.isAuthenticated = this.authService.isLoggedIn();
+    this.isAdminUser = this.authService.isAdmin();
+    this.isCreadorUser = this.authService.isCreador();
+    this.isConsumidorUser = this.authService.isConsumidor();
   }
 
   isLoggedIn(): boolean {
@@ -27,4 +34,5 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.authService.logout();
   } 
+  
 }

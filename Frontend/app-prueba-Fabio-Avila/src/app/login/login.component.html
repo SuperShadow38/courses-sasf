@@ -1,6 +1,7 @@
 <div class="d-flex align-items-center justify-content-center vh-100">
   <div class="text-center">  
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="custom-form">
+    <img class="image-sasf"  src="./../../assets/images/sasf-logo.png" alt="Logo de SASF">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Usuario</label>
         <input type="email" class="form-control" id="exampleInputEmail1" formControlName = "usuario"  aria-describedby="emailHelp">

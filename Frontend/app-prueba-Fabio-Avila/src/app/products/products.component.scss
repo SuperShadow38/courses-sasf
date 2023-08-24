@@ -1,0 +1,19 @@
+$my-secondary-color: #6c757d;
+.btn-secondary {
+    background-color: $my-secondary-color;
+  
+    &:hover {
+      background-color: darken($my-secondary-color, 10%);
+    }
+  }
+
+
+.title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-rounded {
+    border-radius: 20px; 
+  }
+  

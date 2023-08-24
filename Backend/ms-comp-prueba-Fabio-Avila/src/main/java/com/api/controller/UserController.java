@@ -37,6 +37,8 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    
+
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> getUserById(@PathVariable Long id) {
@@ -76,17 +78,22 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @PutMapping("/{id}/desactivar")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+    public ResponseEntity<?> deactivateUser(@PathVariable Long id) {
         User user = userService.getUserId(id);
+        
         if (user != null) {
-            userService.deletUser(id);
-            return ResponseEntity.noContent().build();
+            user.setEstadoUsuario(User.EstadoUsuario.INACTIVO);
+            userService.saveUser(user); 
+            
+            return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
     }
+    
+
 
     @GetMapping("/search")
     public List<User> searchUsersByKeyword(@RequestParam("keyword") String keyword) {

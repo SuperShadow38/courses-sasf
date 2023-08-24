@@ -59,7 +59,7 @@ export class ProductDetailComponent implements OnInit {
       const newProductData = product as Product; // Casting explícito a tipo Product
       this.products.push(newProductData);
       this.fetchAllProducts();
-      console.log(newProductData); // Obtener nuevamente todos los productos después de crear uno nuevo
+      console.log(newProductData); 
     });
   }
 

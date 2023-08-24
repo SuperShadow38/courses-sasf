@@ -1,8 +1,9 @@
 <div *ngIf="isLoggedIn()" class="mb-3">
-  <a class="btn btn-primary" routerLink="create">Crear nuevo usuario</a>
+  
 </div>
-<h1>Informacion de usuarios</h1>
-<table class="table table-striped">
+<h1 class="title">Información de usuarios</h1>  
+<div class="d-flex justify-content-center"> 
+<table class="table">
   <thead>
     <tr>
       <th>ID</th>
@@ -13,7 +14,7 @@
       <th>Email</th>
       <th>Estado</th>
       <th>Actions</th>
-    </tr>
+    </tr>   
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
@@ -25,12 +26,16 @@
       <td>{{ product.email }}</td>
       <td>{{ product.estadoUsuario }}</td>
       <td>
-        <a class="btn btn-primary" [routerLink]="['edit', product.usuario.toString()]">Edit</a>
+        <a class="btn btn-primary btn-rounded" [routerLink]="['edit', product.usuario.toString()]">Edit</a>
 
-        <button class="btn btn-danger" (click)="deleteProduct(product.usuario.toString())">Delete</button>
-
+        <button class="btn btn-danger btn-rounded" (click)="deleteProduct(product.usuario.toString())">Delete</button>
+        
       </td>
     </tr>
+  
   </tbody>
 </table>
 
+</div>
+<br>
+  <a class="btn btn-secondary btn-rounded" routerLink="create">Crear nuevo usuario</a>
