@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthInterceptor } from './auth-interceptor';
 import { AuthService } from './auth.service';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AuthService } from './auth.service';
     ReactiveFormsModule,
     CoreModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SlickCarouselModule 
   ],
   providers: [
     AuthService,
