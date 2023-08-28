@@ -20,6 +20,7 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
 
   loginForm!: FormGroup;
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   showAlert: boolean = false;
 
   ngOnInit() {

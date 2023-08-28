@@ -7,6 +7,7 @@ import jwt_decode from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   private isAuthenticated: boolean = false;
   private tokenKey = 'auth_token';
 
